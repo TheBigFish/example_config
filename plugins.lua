@@ -31,8 +31,32 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+  },{
+    "mfussenegger/nvim-dap",
+    init = function()
+      require("core.utils").load_mappings("dap")
+    end
   },
-
+  {
+    "dreamsofcode-io/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+      require("core.utils").load_mappings("dap_go")
+    end
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+      require("core.utils").load_mappings("gopher")
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
@@ -46,6 +70,7 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
+
 
   -- To make a plugin not be loaded
   -- {
