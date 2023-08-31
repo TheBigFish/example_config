@@ -4,6 +4,13 @@ This can be used as an example custom config for NvChad, this branch is a minima
 
 ## v2.0_custom
 
+## install
+
+```bash
+cd ~/.config/nvim/lua
+git clone https://github.com/TheBigFish/nvchad_custom_config.git custom
+```
+
 ### lsp add go
-https://www.youtube.com/watch?v=i04sSQjd-qo
+https://www.youtube.com/watch?v=i04sSQjd-qo  
 https://github.com/dreamsofcode-io/neovim-go-config
